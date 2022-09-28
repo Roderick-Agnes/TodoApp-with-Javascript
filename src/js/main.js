@@ -92,7 +92,9 @@ function createTodoElement(todo, params) {
   console.log(todo.title);
 
   // check if true then show it or hide
-  todoElement.hidden = !isMatchAll(todoElement, params);
+  if (params.get("search") && params.get("status")) {
+    todoElement.hidden = !isMatchAll(todoElement, params);
+  }
 
   // attach event
   // handleFinishButtonClick();
