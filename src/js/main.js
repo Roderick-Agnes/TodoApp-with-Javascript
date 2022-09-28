@@ -277,6 +277,13 @@ function getTodoList() {
 
 // main function
 (() => {
+  // set query params to url
+  const url = new URL(window.location);
+  url.searchParams.set("search", "");
+  window.history.pushState({}, "", url);
+  url.searchParams.set("status", "all");
+  window.history.pushState({}, "", url);
+
   // get query params from url
   const params = new URLSearchParams(window.location.search);
 
